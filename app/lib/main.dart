@@ -1,4 +1,3 @@
-import 'package:app/constants.dart';
 import 'package:app/screens/home_screen.dart';
 import 'package:app/screens/login_screen.dart';
 import 'package:app/screens/signup_screen.dart';

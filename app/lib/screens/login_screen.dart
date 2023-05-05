@@ -1,12 +1,7 @@
-import 'package:app/constants.dart';
 import 'package:app/screens/signup_screen.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:app/main.dart';
+
 import '../authentication/auth.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -40,6 +35,11 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  Widget circularProgress() {
+    return const CircularProgressIndicator(
+        backgroundColor: Color.fromRGBO(46, 66, 77, 1));
+  }
+
   bool _forgotpass = false;
 
   final emailfieldLogin = TextFormField(
@@ -70,7 +70,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _passReset() async {
     if (_key2.currentState!.validate()) {
       await Auth().passwordForgot(email: emailcontroller.text);
-      _forgotpass = false;
+      setState(() {
+        _forgotpass = false;
+      });
     }
   }
 
@@ -342,20 +344,16 @@ class Wave extends CustomClipper<Path> {
     Path path = Path();
 
     path.lineTo(0, 0.94 * size.height);
-    Offset controlPoint = Offset(size.width / 30, 0.91 * size.height);
-    Offset endPoint = Offset(size.width / 15, 0.923 * size.height);
+    Offset controlPoint = Offset(size.width / 40, 0.865 * size.height);
+    Offset endPoint = Offset(size.width / 15, 0.869 * size.height);
     path.quadraticBezierTo(
         controlPoint.dx, controlPoint.dy, endPoint.dx, endPoint.dy);
-    Offset controlPoint1 = Offset(size.width / 2.2, size.height);
-    Offset endPoint1 = Offset(0.57 * size.width, 0.999 * size.height);
+    Offset controlPoint1 = Offset(0.5 * size.width, size.height);
+    Offset endPoint1 = Offset(0.67 * size.width, 0.98 * size.height);
     path.quadraticBezierTo(
         controlPoint1.dx, controlPoint1.dy, endPoint1.dx, endPoint1.dy);
 
-    Offset controlPoint2 = Offset(0.67 * size.width, 0.986 * size.height);
-    Offset endPoint2 = Offset(0.81 * size.width, 0.93 * size.height);
-    path.quadraticBezierTo(
-        controlPoint2.dx, controlPoint2.dy, endPoint2.dx, endPoint2.dy);
-    Offset controlPoint3 = Offset(0.88 * size.width, 0.906 * size.height);
+    Offset controlPoint3 = Offset(0.88 * size.width, 0.946 * size.height);
     Offset endPoint3 = Offset(size.width, 0.847 * size.height);
     path.quadraticBezierTo(
         controlPoint3.dx, controlPoint3.dy, endPoint3.dx, endPoint3.dy);
@@ -374,5 +372,5 @@ class Wave extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

@@ -43,7 +43,7 @@ class Auth {
           .createUserWithEmailAndPassword(email: email, password: password)
           .then((value) async {
         await value.user!.sendEmailVerification();
-        final uid = value.user!.uid;
+       
 
         Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: ((context) => const LoginScreen())));
