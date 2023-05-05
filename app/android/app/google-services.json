@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "448415422334",
+    "project_id": "iitpatnabus-c8785",
+    "storage_bucket": "iitpatnabus-c8785.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448415422334:android:02f3467c159fcefcd3c52f",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448415422334-94gbpho9udhilhv2mctc1s0pm65s3s68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiTPSY3pycxtohO1lw23jyZzxyLQN55ew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448415422334-94gbpho9udhilhv2mctc1s0pm65s3s68.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "448415422334-c35k09tm3kfthkv6ru7ak6nqhf2rvhg9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
