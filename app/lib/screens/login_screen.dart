@@ -16,13 +16,10 @@ final TextEditingController emailcontroller = TextEditingController();
 final TextEditingController forgotpasscontroller = TextEditingController();
 
 final _key2 = GlobalKey<FormState>();
-GlobalKey<FormFieldState<String>> field3Key =
-    GlobalKey<FormFieldState<String>>();
+final field3Key = GlobalKey<FormFieldState<String>>();
 final _formKey = GlobalKey<FormState>();
-GlobalKey<FormFieldState<String>> field1Key =
-    GlobalKey<FormFieldState<String>>();
-GlobalKey<FormFieldState<String>> field2Key =
-    GlobalKey<FormFieldState<String>>();
+final field1Key = GlobalKey<FormFieldState<String>>();
+final field2Key = GlobalKey<FormFieldState<String>>();
 
 class _LoginScreenState extends State<LoginScreen> {
   Future<void> loginUser() async {
@@ -48,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
       if (value!.isEmpty) {
         return "Please Enter Your Email!";
       }
-      if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
+      if (!(RegExp(r'^[a-zA-Z0-9._%+-]+@iitp\.ac\.in$').hasMatch(value))) {
         return ("Please Enter a valid email");
       }
       return null;
@@ -121,9 +118,26 @@ class _LoginScreenState extends State<LoginScreen> {
               child: const Text(
                 "Reset Password",
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                 ),
               )),
+        ),
+        SizedBox(height: 0.06 * MediaQuery.of(context).size.height),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+                backgroundColor: const Color.fromRGBO(46, 66, 77, 1),
+                child: const Icon(
+                  Icons.arrow_back,
+                  size: 30,
+                ),
+                onPressed: () {
+                  setState(() {
+                    _forgotpass = false;
+                  });
+                }),
+          ],
         )
       ],
     );
