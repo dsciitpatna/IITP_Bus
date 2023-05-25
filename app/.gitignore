@@ -46,3 +46,4 @@ app.*.map.json
 # others
 .idea/
 .vscode/
+.dart_tool/

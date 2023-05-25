@@ -57,6 +57,7 @@ flutter :
     - assets/images/2x/
     - assets/images/3x/
     - assets/images/4x/
+    - assets/images/bus.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
@@ -70,6 +71,15 @@ flutter :
     - family: Righteous
       fonts:
         - asset: fonts/Righteous-Regular.ttf
+
+    - family: Sarabun
+      fonts:
+        - asset: fonts/sarabun-Regular.ttf
+        - asset: fonts/sarabun-Bold.ttf
+
+    - family: Roboto
+      fonts: 
+        - asset: fonts/Roboto-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
