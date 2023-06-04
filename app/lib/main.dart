@@ -22,7 +22,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "IITP BUS",
-      routes: {'/signup': (context) => const SignUp(),'/home':(context) => const HomePage(),'/login':(context) => const LoginScreen()},
+      routes: {
+        '/signup': (context) => const SignUp(),
+        '/home': (context) => const HomePage(),
+        '/login': (context) => const LoginScreen()
+      },
       home: StreamBuilder<User?>(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
@@ -31,6 +35,7 @@ class MyApp extends StatelessWidget {
             } else {
               return const LoginScreen();
             }
+            
           }),
     );
   }

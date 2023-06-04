@@ -15,7 +15,7 @@ final TextEditingController passwordcontroller = TextEditingController();
 final TextEditingController emailcontroller = TextEditingController();
 final TextEditingController forgotpasscontroller = TextEditingController();
 
-final _key2 = GlobalKey<FormState>();
+//final _key2 = GlobalKey<FormState>();
 final field3Key = GlobalKey<FormFieldState<String>>();
 final _formKey = GlobalKey<FormState>();
 final field1Key = GlobalKey<FormFieldState<String>>();
@@ -24,7 +24,7 @@ final field2Key = GlobalKey<FormFieldState<String>>();
 class _LoginScreenState extends State<LoginScreen> {
   Future<void> loginUser() async {
     if (_formKey.currentState!.validate()) {
-      _formKey.currentState!.save();
+      //_formKey.currentState!.save();
       Auth().loginwithEmail(
           email: emailcontroller.text,
           password: passwordcontroller.text,
@@ -45,9 +45,9 @@ class _LoginScreenState extends State<LoginScreen> {
       if (value!.isEmpty) {
         return "Please Enter Your Email!";
       }
-      if (!(RegExp(r'^[a-zA-Z0-9._%+-]+@iitp\.ac\.in$').hasMatch(value))) {
-        return ("Please Enter a valid email");
-      }
+      //if (!(RegExp(r'^[a-zA-Z0-9._%+-]+@iitp\.ac\.in$').hasMatch(value))) {
+        //return ("Please Enter a valid email");
+      //}
       return null;
     },
     onSaved: (value) {
@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _visibility = true;
 
   Future<void> _passReset() async {
-    if (_key2.currentState!.validate()) {
+    if (_formKey.currentState!.validate()) {
       await Auth().passwordForgot(email: emailcontroller.text);
       setState(() {
         _forgotpass = false;
@@ -77,15 +77,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Column(
       children: [
         Form(
-            key: _key2,
+            key: _formKey,
             child: TextFormField(
               key: field3Key,
               validator: (value) {
                 if (value!.isEmpty) {
                   return "Please Enter Your Email!";
                 }
-                if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                    .hasMatch(value)) {
+                if (!(RegExp(r'^[a-zA-Z0-9._%+-]+@iitp\.ac\.in$')
+                    .hasMatch(value))) {
                   return ("Please Enter a valid email");
                 }
                 return null;
@@ -142,6 +142,8 @@ class _LoginScreenState extends State<LoginScreen> {
       ],
     );
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -276,9 +278,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         TextFormField(
                             key: field2Key,
-                            onSaved: (value) {
-                              passwordcontroller.text = value!;
-                            },
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return "Enter a Passoword of Minimun 6 characters";

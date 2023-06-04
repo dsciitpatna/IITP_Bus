@@ -60,13 +60,12 @@ final emailfieldsignup = TextFormField(
   validator: (value) {
     if (value!.isEmpty) {
       return "Please Enter Your Email!";
-    } 
-     if (!RegExp(r"^[^\s@]+@[^\s@]+\.(?!iitp\.ac\.in)[^\s@]+$")
+    }
+    if (!RegExp(r"^[^\s@]+@[^\s@]+\.(?!iitp\.ac\.in)[^\s@]+$")
         .hasMatch(value)) {
       return ("Please Enter a valid email");
-    } 
+    }
     return null;
-    
   },
   textInputAction: TextInputAction.next,
   controller: _emailController,
@@ -125,6 +124,9 @@ class _SignUpState extends State<SignUp> {
         await Auth().signupwithEmail(
           email: _emailController.text,
           password: _passwordController.text,
+          rollno: _rollnocontroller.text,
+          name: _namecontroller.text,
+          phoneno: _phonecontroller.text,
           context: context,
         );
       } else {
@@ -134,6 +136,8 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -142,26 +146,23 @@ class _SignUpState extends State<SignUp> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          
           Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
               children: [
-                
-                Row(
-                  
-                  children:[
+                Row(children: [
                   IconButton(
-            iconSize: 40,
-            onPressed: () {
-            Navigator.pop(context);
-          },
-          icon:const Icon(Icons.arrow_back,color: Color(0xd9EAEBED),),
-          ),
-          ]
-          ),
-                   Image.asset('assets/images/signup_logo.png'),
-                   
+                    iconSize: 40,
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      color: Color(0xd9EAEBED),
+                    ),
+                  ),
+                ]),
+                Image.asset('assets/images/signup_logo.png'),
                 const Text(
                   "Create Account",
                   style: TextStyle(
@@ -282,7 +283,10 @@ class _SignUpState extends State<SignUp> {
                           height: 0.06 * MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width,
                           child: ElevatedButton(
-                              onPressed: signupUser,
+                              onPressed: 
+                              signupUser,
+                              
+
                               style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all(
                                       const Color.fromRGBO(46, 66, 77, 1)),
