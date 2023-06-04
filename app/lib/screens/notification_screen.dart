@@ -7,18 +7,30 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(46, 66, 77, 1),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: const Text(
-          'Notifications',
-        ),
+        backgroundColor:const Color(0xff2e424d),
+        title: const Text("Notifications",),
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back)),
+        actions: [
+        IconButton(onPressed: (){}, icon:const Icon(Icons.notifications_off)),
+        
+      ]),
+      body: Column(
+        children:const [
+          ListTile(
+            leading: Icon(Icons.donut_small),
+            title: Text("Tomorrow bus will not come. Check the bus schedule please."),
+            subtitle: Text("Feb 2, 2023 at 9:00 AM"),
+          ),
+          ListTile(
+        leading: Icon(Icons.donut_small),
+        title: Text("Tomorrow bus will not come. Check the bus schedule please."),
+        subtitle: Text("Feb 2, 2023 at 9:00 AM"),
       ),
-      body: const Center(child: Text("Notification Screen")),
+        ],
+      ),
+      
     );
   }
 }
